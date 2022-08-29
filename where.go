@@ -13,6 +13,7 @@ type Where struct {
 	Exclude string
 	Limit   uint64
 }
+
 func (where Where) GetWhereInterface() {}
 func (where Where) PrefixStr() *string {
 	if where.Prefix == "" {
