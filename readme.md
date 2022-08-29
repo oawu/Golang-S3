@@ -12,19 +12,19 @@
 
 目前可以使用以下功能：
 
-* 測試是否可以使用
-* 取得資訊
-* 取得 Buckets 列表
-* 建立 Bucket
-* 刪除 Bucket
-* 取得 Bucket 內的檔案
-* 上傳檔案到 Bucket 內
-* 下載儲存 Bucket 內的檔案
-* 刪除 Bucket 內的檔案
-* 取得 Bucket 內的檔案資訊
-* 複製 Bucket 內的檔案（CopyFrom）
-* 複製 Bucket 內的檔案（CopyTo）
-* 清空 Bucket 內所有的檔案
+* [測試是否可以使用](#測試是否可以使用)
+* [取得資訊](#取得資訊)
+* [取得 Buckets 列表](#取得-Buckets-列表)
+* [建立 Bucket](#建立-Bucket)
+* [刪除 Bucket](#刪除-Bucket)
+* [取得 Bucket 內的檔案](#取得-Bucket-內的檔案)
+* [上傳檔案到 Bucket 內](#上傳檔案到-Bucket-內)
+* [下載儲存 Bucket 內的檔案](#下載儲存-Bucket-內的檔案)
+* [刪除 Bucket 內的檔案](#刪除-Bucket-內的檔案)
+* [取得 Bucket 內的檔案資訊](#取得-Bucket-內的檔案資訊)
+* [複製 Bucket 內的檔案（CopyFrom）](#複製-Bucket-內的檔案（CopyFrom）)
+* [複製 Bucket 內的檔案（CopyTo）](#複製-Bucket-內的檔案（CopyTo）)
+* [清空 Bucket 內所有的檔案](#清空-Bucket-內所有的檔案)
 
 ## 功能範例
 
