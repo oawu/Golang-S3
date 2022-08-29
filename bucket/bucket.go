@@ -418,7 +418,7 @@ func (bucket *Bucket) File() (*_resp.Response, error) {
 
 	return response, nil
 }
-func (bucket *Bucket) Save(path string, mods ..._os.FileMode) error {
+func (bucket *Bucket) Save(path string, modes ..._os.FileMode) error {
 	resp, err := bucket.File()
 	if err != nil {
 		return err
@@ -442,11 +442,11 @@ func (bucket *Bucket) Save(path string, mods ..._os.FileMode) error {
 	}
 	file.Sync()
 
-	var mod _os.FileMode = 0644
-	if len(mods) > 0 {
-		mod = mods[0]
+	var mode _os.FileMode = 0644
+	if len(modes) > 0 {
+		mode = modes[0]
 	}
-	err = _os.Chmod(path, mod)
+	err = _os.Chmod(path, mode)
 	if err != nil {
 		return _err.New(_fmt.Sprintf("%s 檔案變更權限失敗，Message：%s", path, err))
 	}

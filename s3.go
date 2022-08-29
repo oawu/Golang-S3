@@ -27,12 +27,6 @@ type S3 struct {
 	_access string
 	_secret string
 }
-type Where struct {
-	Prefix  string
-	NextKey string
-	Exclude string
-	Limit   uint64
-}
 
 var (
 	_instances = map[string]*S3{}
@@ -59,31 +53,6 @@ func Instance(access string, secret string) *S3 {
 	return _instances[key]
 }
 
-func (where Where) GetWhereInterface() {}
-func (where Where) PrefixStr() *string {
-	if where.Prefix == "" {
-		return nil
-	}
-	return &where.Prefix
-}
-func (where Where) NextKeyStr() *string {
-	if where.NextKey == "" {
-		return nil
-	}
-	return &where.NextKey
-}
-func (where Where) ExcludeStr() *string {
-	if where.Exclude == "" {
-		return nil
-	}
-	return &where.Exclude
-}
-func (where Where) LimitNum() *uint64 {
-	if where.Limit == 0 {
-		return nil
-	}
-	return &where.Limit
-}
 func (s3 *S3) GetS3Interface() {}
 
 func (s3 *S3) Signature(str string) string {

@@ -4,11 +4,9 @@
 
 ![AWS S3 lib by golang](Golang-S3.gif)
 
-
 ## 說明
 * 使與 Golang 製作的 [AWS S3](https://aws.amazon.com/tw/s3/) 函式。
 * 單純當練習，熟悉 Golang 的編碼與 [cURL](https://pkg.go.dev/net/http) 使用方式。
-
 
 ## 使用
 
@@ -120,6 +118,10 @@ func main() {
 
 可帶條件，如區域與權限，以下為設置此 Bucket 區域為東京，並且為公開。
 
+區域可以參考 [loc.go](https://github.com/oawu/Golang-S3/blob/master/enum/loc.go)。
+
+權限可以參考 [acl.go](https://github.com/oawu/Golang-S3/blob/master/enum/acl.go)。
+
 ``` go
   import (
     s3Enum "github.com/oawu/Golang-S3/enum"
@@ -179,6 +181,8 @@ func main() {
 
 可帶條件，如 前綴（Prefix）、路徑之後（NextKey）、排除（Exclude）、長度（Limit），如下範例為前綴 `test/` 內取得前 10 筆資料。
 
+條件可以參考 [where.go](https://github.com/oawu/Golang-S3/blob/master/where.go)。
+
 ``` go
   import (
     s3Enum "github.com/oawu/Golang-S3/enum"
@@ -213,6 +217,10 @@ func main() {
 
 可帶條件，如權限或快取時間，以下為設置此檔案上傳後為公開的，並且暫存 1 分鐘。
 
+權限可以參考 [acl.go](https://github.com/oawu/Golang-S3/blob/master/enum/acl.go)。
+
+暫存時間以秒為單位。
+
 ``` go
   import (
     s3Enum "github.com/oawu/Golang-S3/enum"
@@ -242,7 +250,7 @@ func main() {
 }
 ```
 
-可帶參數，決定下載後檔案的權限，預設為 `0644`，如下範例圍設置 `0777`
+可帶參數，決定下載後檔案的 [權限](https://en.wikipedia.org/wiki/File-system_permissions)，預設為 `0644`，如下範例圍設置 `0777`
 
 ``` go
   err := s3.Bucket("your_bucket_name/filepath/file.ext").Save("/local/filepath/file.ext", 0777)
@@ -319,6 +327,10 @@ func main() {
 
 可帶條件，如權限或快取時間，以下為設置此新的檔案為公開的，並且暫存 1 分鐘。
 
+權限可以參考 [acl.go](https://github.com/oawu/Golang-S3/blob/master/enum/acl.go)。
+
+暫存時間以秒為單位。
+
 ``` go
   import (
     s3Enum "github.com/oawu/Golang-S3/enum"
@@ -349,6 +361,10 @@ func main() {
 ```
 
 可帶條件，如權限或快取時間，以下為設置此新的檔案為公開的，並且暫存 1 分鐘。
+
+權限可以參考 [acl.go](https://github.com/oawu/Golang-S3/blob/master/enum/acl.go)。
+
+暫存時間以秒為單位。
 
 ``` go
   import (
