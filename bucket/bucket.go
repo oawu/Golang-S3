@@ -459,15 +459,15 @@ func (bucket *Bucket) CopyTo(dest string, args ...interface{}) error {
 func (bucket *Bucket) CopyFrom(src string, args ...interface{}) error {
 	return copy(bucket.s3, bucket.s3.Bucket(src), bucket)
 }
-func (bucket *Bucket) Clean(cpus ...uint8) []error {
+func (bucket *Bucket) Clean(goroutines ...uint8) []error {
 	files, err := bucket.Files()
 	if err != nil {
 		return []error{err}
 	}
 
-	cpu := 1
-	if len(cpus) > 0 {
-		cpu = int(cpus[0])
+	gor := 1
+	if len(goroutines) > 0 {
+		gor = int(goroutines[0])
 	}
 
 	total := len(files)
@@ -475,7 +475,7 @@ func (bucket *Bucket) Clean(cpus ...uint8) []error {
 	ins := make(chan string, total)
 	ous := make(chan error, total)
 
-	for i := 0; i < cpu; i++ {
+	for i := 0; i < gor; i++ {
 		wg.Add(1)
 		go func(s3 _S3, wg *_sync.WaitGroup, ins <-chan string, ous chan<- error) {
 			defer wg.Done()

@@ -397,3 +397,9 @@ func main() {
   fmt.Println("清空完成")
 }
 ```
+
+可帶數字，決定開啟幾個 goroutine 來同步刪除資料，如下範例為開啟 10 個 goroutine func 來做刪除。
+
+``` go
+  errs := s3.Bucket("your_bucket_name").Clean(10)
+```
